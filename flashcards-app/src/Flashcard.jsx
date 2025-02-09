@@ -11,7 +11,7 @@ const Flashcard = ({ question, answer, isFlipped, setIsFlipped, onAnswer, isAnsw
     setUserAnswer('');
     setFeedback(null);
     setLocalAnswered(false);
-    // ❌ Do NOT reset flip state when a new card loads
+    // Do NOT reset flip state when a new card loads
     // Removing: setIsFlipped(false);
   }, [question]);
 

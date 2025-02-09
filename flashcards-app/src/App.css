@@ -25,7 +25,7 @@ p {
 
 /* Game Over Section */
 .game-over h2 {
-    font-size: 3em;
+    font-size: 5em;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
@@ -181,7 +181,7 @@ p {
 
 .game-over button {
     padding: 10px 25px;
-    font-size: 1.4em;
+    font-size: 2em;
     font-family: 'Uncial Antiqua', serif;
     border: 2px solid #8b7355;
     border-radius: 8px;
@@ -191,8 +191,8 @@ p {
     transition: all 0.3s ease-in-out;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     font-weight: bold;
-    width: 200px; /* Match "Show Answer" */
-    height: 50px; /* Same height for consistency */
+    width: 250px; /* Match "Show Answer" */
+    height: 60px; /* Same height for consistency */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -328,3 +328,4 @@ p {
     color: white;
     animation: fireGlow 1.5s infinite alternate;
 }
+
