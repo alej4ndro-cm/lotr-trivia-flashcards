@@ -14,16 +14,25 @@ body {
 }
 
 h1 {
-    text-shadow: 4px 4px 8px black; /* Bigger shadow for better contrast */
-    font-size: 3em;
-    font-weight: bold;
+    font-size: 4em;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 p {
-    text-shadow: 2px 2px 5px black; /* More depth for readability */
-    font-weight: bold;
+    font-size: 1.6em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Game Over Section */
+.game-over h2 {
+    font-size: 3em;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.game-over p {
+    font-size: 1.8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
 
 .App {
     text-align: center;
@@ -61,7 +70,6 @@ p {
     background-color: #ffcc00; /* Lighter gold when hovered */
     border-color: #ffaa00;
 }
-
 
 .progress-indicator {
     font-size: 1.2em;
@@ -162,6 +170,45 @@ p {
     }
 }
 
+.game-over {
+    text-align: center; /* Center text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Centers everything vertically */
+}
+
+.game-over button {
+    padding: 10px 25px;
+    font-size: 1.4em;
+    font-family: 'Uncial Antiqua', serif;
+    border: 2px solid #8b7355;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #c0a060 0%, #ab8d4d 100%);
+    color: #2c1810;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    width: 200px; /* Match "Show Answer" */
+    height: 50px; /* Same height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Space from text */
+}
+
+.game-over button:hover {
+    background: linear-gradient(145deg, #d4b574 0%, #c0a060 100%);
+    transform: translateY(-2px);
+}
+
+/* ✅ FIX: Hide the title when Game Over is active */
+.game-over h1 {
+    display: none;
+}
+
 @media screen and (max-width: 375px) {
     h1 {
         font-size: 1.6em; /* Reduce title size */
@@ -242,3 +289,42 @@ p {
     }
 }
 
+@keyframes fireGlow {
+    0% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
+    50% { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00; }
+    100% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
+}
+
+@keyframes fireGlow {
+    0% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
+    50% { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00; }
+    100% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
+}
+
+/* Fire effect for the main title */
+.fire-title {
+    font-size: 4em;
+    color: white;
+    animation: fireGlow 1.5s infinite alternate;
+}
+
+/* Fire effect for the progress indicator */
+.fire-progress {
+    font-size: 1.8em;
+    color: white;
+    animation: fireGlow 1.5s infinite alternate;
+}
+
+/* Apply fire effect to Game Over and Score */
+.fire-text {
+    font-size: 3.5em;
+    color: white;
+    animation: fireGlow 1.5s infinite alternate;
+}
+
+/* Fire effect for the score */
+.fire-score {
+    font-size: 2em;
+    color: white;
+    animation: fireGlow 1.5s infinite alternate;
+}
