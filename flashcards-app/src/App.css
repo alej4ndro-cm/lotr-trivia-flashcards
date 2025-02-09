@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: white;
+    font-family: 'Uncial Antiqua', serif;
+    background: url('/background-desktop.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    text-shadow: 4px 4px 8px black; /* Bigger shadow for better contrast */
+    font-size: 3em;
+    font-weight: bold;
+}
+
+p {
+    text-shadow: 2px 2px 5px black; /* More depth for readability */
+    font-weight: bold;
+}
+
+
+.App {
+    text-align: center;
+}
+
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: 2px solid #aa8800; /* Gold Border */
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ffd700; /* Gold Background */
+    color: #000;
+    transition: background 0.3s ease-in-out;
+    width: 150px; /* Ensures both buttons have the same width */
+    text-align: center;
+}
+
+.nav-button:hover {
+    background-color: #ffcc00; /* Lighter gold when hovered */
+    border-color: #ffaa00;
+}
+
+
+.progress-indicator {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.shuffle-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.shuffle-button:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Reduce title size */
+        max-width: 90%;
+    }
+
+    p {
+        font-size: 1em; /* Adjust paragraph text */
+        max-width: 90%;
+    }
+
+    .progress-indicator {
+        font-size: 1em; /* Make progress text smaller */
+        max-width: 90%;
+    }
+
+    .flashcard {
+        width: 90%; /* Make flashcards responsive */
+        height: auto;
+        padding: 15px;
+        font-size: 1.2em; /* Slightly smaller text */
+        max-width: 90%;
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+    }
+
+    .nav-button {
+        width: 100%; /* Full width on smaller screens */
+        font-size: 1em;
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 1.8em; /* Reduce title size further */
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    p {
+        font-size: 0.9em; /* Slightly smaller text */
+        padding: 5px;
+        max-width: 90%;
+    }
+
+    .progress-indicator {
+        font-size: 0.9em;
+        padding: 5px;
+        max-width: 90%;
+    }
+
+    .flashcard {
+        width: 90%; /* Adjust width to avoid cutoff */
+        height: auto; /* Ensure it scales properly */
+        font-size: 1.1em; /* Smaller font for readability */
+        padding: 12px;
+        max-width: 90%;
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons */
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-button {
+        width: 90%; /* Full width buttons for better alignment */
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 1.6em; /* Reduce title size */
+        padding: 8px;
+        max-width: 90%;
+    }
+
+    p {
+        font-size: 0.85em; /* Scale down text */
+        padding: 4px;
+        max-width: 90%;
+    }
+
+    .progress-indicator {
+        font-size: 0.85em;
+        padding: 4px;
+        max-width: 90%;
+    }
+
+    .flashcard {
+        width: 95%; /* Slightly smaller to prevent overflow */
+        height: auto;
+        font-size: 1em; /* Smaller font */
+        padding: 10px;
+        max-width: 95%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .nav-button {
+        width: 95%; /* Ensure buttons fit on screen */
+        font-size: 0.85em;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 1.4em; /* Further reduce title size */
+        padding: 6px;
+        max-width: 90%;
+    }
+
+    p {
+        font-size: 0.8em;
+        padding: 3px;
+        max-width: 90%;
+    }
+
+    .progress-indicator {
+        font-size: 0.8em;
+        padding: 3px;
+        max-width: 90%;
+    }
+
+    .flashcard {
+        width: 98%; /* Prevent cut-off */
+        height: auto;
+        font-size: 0.95em;
+        padding: 8px;
+        max-width: 98%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .nav-button {
+        width: 98%; /* Ensure buttons fit neatly */
+        font-size: 0.8em;
+        padding: 6px;
+    }
+}
+
