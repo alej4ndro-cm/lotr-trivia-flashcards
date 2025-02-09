@@ -1,82 +1,33 @@
-.flashcard {
-    width: 500px;
-    height: 300px;
+/* Keep your existing .flashcard styles and add these new styles */
+
+.answer-form {
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.5em;
-    border: 3px solid #c0a060;
-    border-radius: 15px;
-    cursor: pointer;
-    background: rgba(242, 234, 211, 0.98);
-    color: #000000;
-    transition: all 0.3s ease-in-out;
-    padding: 30px;
-    box-sizing: border-box;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(192, 160, 96, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.flashcard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="none" stroke="%23c0a060" stroke-width="1"/><circle cx="100" cy="100" r="80" fill="none" stroke="%23c0a060" stroke-width="0.5"/></svg>') center center;
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-.flashcard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(192, 160, 96, 0.3);
-}
-
-.flashcard p {
-    margin: 0;
+  }
+  
+  .answer-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #c0a060;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
     font-family: 'Uncial Antiqua', serif;
-    line-height: 1.6;
-    max-width: 90%;
-    position: relative;
-    color: #2c1810;  /* Darker brown color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    background: none;
-}
-
-.flashcard p::before,
-.flashcard p::after {
-    content: '❧';
-    color: #c0a060;
-    font-size: 0.8em;
-    position: absolute;
-    opacity: 0.6;
-}
-
-.flashcard p::before {
-    left: -30px;
-}
-
-.flashcard p::after {
-    right: -30px;
-}
-
-.front {
-    background: linear-gradient(135deg, rgba(242, 234, 211, 0.95) 0%, rgba(234, 226, 203, 0.95) 100%);
-}
-
-.back {
-    background: linear-gradient(135deg, rgba(234, 226, 203, 0.95) 0%, rgba(226, 218, 195, 0.95) 100%);
-}
-
-.nav-button {
-    padding: 12px 25px;
-    font-size: 1.1em;
+    color: #2c1810;
+  }
+  
+  .answer-input:focus {
+    outline: none;
+    border-color: #8b7355;
+    box-shadow: 0 0 5px rgba(192, 160, 96, 0.5);
+  }
+  
+  .submit-button {
+    padding: 8px 20px;
+    font-size: 1em;
     font-family: 'Uncial Antiqua', serif;
     border: 2px solid #8b7355;
     border-radius: 8px;
@@ -84,189 +35,51 @@
     background: linear-gradient(145deg, #c0a060 0%, #ab8d4d 100%);
     color: #2c1810;
     transition: all 0.3s ease-in-out;
-    width: 160px;
-    text-align: center;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:hover {
+  }
+  
+  .submit-button:hover:not(:disabled) {
     background: linear-gradient(145deg, #d4b574 0%, #c0a060 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.progress-indicator {
-    color: #f4ecd9;
-    font-size: 1.3em;
-    margin: 20px 0;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5px 15px;
-    border-radius: 8px;
-    display: inline-block;
-}
-
-.App h1 {
-    color: #f4ecd9;
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 15px 30px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.App > p {
-    color: #f4ecd9;
-    font-size: 1.2em;
-    background: rgba(0, 0, 0, 0.5);
-    max-width: 800px;
-    margin: 0 auto 30px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    border-radius: 8px;
-}.flashcard {
-    width: 500px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.5em;
-    border: 3px solid #c0a060;
-    border-radius: 15px;
-    cursor: pointer;
-    background: rgba(242, 234, 211, 0.98);
-    color: #000000;
-    transition: all 0.3s ease-in-out;
-    padding: 30px;
-    box-sizing: border-box;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(192, 160, 96, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.flashcard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="none" stroke="%23c0a060" stroke-width="1"/><circle cx="100" cy="100" r="80" fill="none" stroke="%23c0a060" stroke-width="0.5"/></svg>') center center;
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.flashcard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(192, 160, 96, 0.3);
-}
-
-.flashcard p {
-    margin: 0;
-    font-family: 'Uncial Antiqua', serif;
-    line-height: 1.6;
-    max-width: 90%;
-    position: relative;
-    color: #2c1810;  /* Darker brown color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    background: none;
-}
-
-.flashcard p::before,
-.flashcard p::after {
-    content: '❧';
-    color: #c0a060;
-    font-size: 0.8em;
-    position: absolute;
+  }
+  
+  .submit-button:disabled {
     opacity: 0.6;
-}
-
-.flashcard p::before {
-    left: -30px;
-}
-
-.flashcard p::after {
-    right: -30px;
-}
-
-.front {
-    background: linear-gradient(135deg, rgba(242, 234, 211, 0.95) 0%, rgba(234, 226, 203, 0.95) 100%);
-}
-
-.back {
-    background: linear-gradient(135deg, rgba(234, 226, 203, 0.95) 0%, rgba(226, 218, 195, 0.95) 100%);
-}
-
-.nav-button {
-    padding: 12px 25px;
-    font-size: 1.1em;
-    font-family: 'Uncial Antiqua', serif;
-    border: 2px solid #8b7355;
+    cursor: not-allowed;
+  }
+  
+  .feedback {
+    margin-top: 15px;
+    padding: 8px 16px;
     border-radius: 8px;
-    cursor: pointer;
-    background: linear-gradient(145deg, #c0a060 0%, #ab8d4d 100%);
-    color: #2c1810;
-    transition: all 0.3s ease-in-out;
-    width: 160px;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:hover {
-    background: linear-gradient(145deg, #d4b574 0%, #c0a060 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.progress-indicator {
-    color: #f4ecd9;
-    font-size: 1.3em;
-    margin: 20px 0;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5px 15px;
-    border-radius: 8px;
-    display: inline-block;
-}
-
-.App h1 {
-    color: #f4ecd9;
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    padding: 15px 30px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-}
-
-.App h1::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 130%;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg"><path d="M15,50 Q40,10 80,50 T160,50 T200,50 T240,50" fill="rgba(0,0,0,0.5)" transform="rotate(2)"><animate attributeName="d" dur="20s" repeatCount="indefinite" values="M15,50 Q40,10 80,50 T160,50 T200,50 T240,50;M15,50 Q40,90 80,50 T160,50 T200,50 T240,50;M15,50 Q40,10 80,50 T160,50 T200,50 T240,50"/></path></svg>') center center no-repeat;
-    z-index: -1;
-    filter: blur(3px);
-}
-
-.App > p {
-    color: #f4ecd9;
-    font-size: 1.2em;
-    background: rgba(0, 0, 0, 0.5);
-    max-width: 800px;
-    margin: 0 auto 30px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    border-radius: 8px;
-}
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .feedback.correct {
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+  }
+  
+  .feedback.incorrect {
+    background: rgba(244, 67, 54, 0.9);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Add to your existing media queries */
+  @media screen and (max-width: 768px) {
+    .answer-input {
+      width: 90%;
+      font-size: 0.9em;
+    }
+    
+    .submit-button {
+      font-size: 0.9em;
+      padding: 6px 16px;
+    }
+  }
