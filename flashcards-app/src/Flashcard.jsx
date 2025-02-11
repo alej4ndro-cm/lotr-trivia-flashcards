@@ -2,6 +2,19 @@ import ReactCardFlip from 'react-card-flip';
 import { useState, useEffect } from 'react';
 import './Flashcard.css';
 
+const normalizeText = (str) => {
+  return str
+    .toLowerCase()
+    .trim()
+    .normalize("NFD") // Normalize accents
+    .replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+};
+
+const containsKeywords = (userInput, correctAnswer) => {
+  const correctWords = correctAnswer.split(" "); // Split answer into words
+  return correctWords.some(word => userInput.includes(word)); // Check if user input has any key words
+};
+
 const Flashcard = ({ question, answer, isFlipped, setIsFlipped, onAnswer, isAnswered }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
@@ -11,36 +24,41 @@ const Flashcard = ({ question, answer, isFlipped, setIsFlipped, onAnswer, isAnsw
     setUserAnswer('');
     setFeedback(null);
     setLocalAnswered(false);
-    // Do NOT reset flip state when a new card loads
-    // Removing: setIsFlipped(false);
   }, [question]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (localAnswered) return;
-    
-    const isCorrect = userAnswer.toLowerCase().trim() === answer.toLowerCase().trim();
+
+    // Normalize both user input and correct answer
+    const normalizedUserAnswer = normalizeText(userAnswer);
+    const normalizedCorrectAnswer = normalizeText(answer);
+
+    // Check if exact match OR user input contains key words from the correct answer
+    const isCorrect =
+        normalizedUserAnswer === normalizedCorrectAnswer ||
+        containsKeywords(normalizedUserAnswer, normalizedCorrectAnswer);
+
     setFeedback(isCorrect);
-    
+
     if (isCorrect) {
-      setTimeout(() => {
-        setIsFlipped(true); // Flip card
-        onAnswer(isCorrect);
-        setLocalAnswered(true);
-      }, 500);
+        setTimeout(() => {
+            setIsFlipped(true);
+            onAnswer(isCorrect);
+            setLocalAnswered(true);
+        }, 500);
     } else {
-      setUserAnswer('');
-      setFeedback(false);
+        setUserAnswer('');
+        setFeedback(false);
     }
   };
 
   const handleGiveUp = () => {
-    if (localAnswered) return; // Prevent multiple score updates
+    if (localAnswered) return; // Prevent multiple clicks
   
     setFeedback(false);
     setIsFlipped(true);
   
-    // Ensure score is updated ONLY the first time
     setTimeout(() => {
       if (!localAnswered) { 
         onAnswer(false);
@@ -89,7 +107,6 @@ const Flashcard = ({ question, answer, isFlipped, setIsFlipped, onAnswer, isAnsw
         </div>
       </div>
 
-      {/*Fix: Do NOT flip back when clicking on the back */}
       <div className="flashcard back" key="back">
         <div className="card-content">
           <p>{answer}</p>

@@ -45,19 +45,22 @@ const App = () => {
   };
 
   const nextCard = () => {
-    // Prevent going past the last card if game is over
-    if (gameOver) return;
+    setIsFlipped(false); // Ensure it flips to front before changing cards
+    setTimeout(() => {
+        setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcardsData.length);
+    }, 200); // Small delay to ensure reset before change
+};
 
-    setIsFlipped(false);
-    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcardsData.length);
-  };
 
-  const prevCard = () => {
-    setIsFlipped(false);
-    setCurrentCardIndex((prevIndex) => 
-      prevIndex === 0 ? flashcardsData.length - 1 : prevIndex - 1
-    );
-  };
+const prevCard = () => {
+  setIsFlipped(false); // Flip to front before changing cards
+  setTimeout(() => {
+      setCurrentCardIndex((prevIndex) =>
+          prevIndex === 0 ? flashcardsData.length - 1 : prevIndex - 1
+      );
+  }, 200);
+};
+
 
   const restartGame = () => {
     setCurrentCardIndex(0);
@@ -69,12 +72,12 @@ const App = () => {
 
   return (
     <div className="App">
-      {!gameOver && <h1 className="fire-title">🔥 LOTR Trivia Cards 🔥</h1>}
+      {!gameOver && <h1 className="fire-title">🧙‍♂️ LOTR Trivia Cards 🧙‍♂️</h1>}
 
 
       {gameOver ? (
         <div className="game-over">
-        <h2 className="fire-text">🔥 Game Over! 🔥</h2>
+        <h2 className="fire-text"> ☠️Game Over!☠️ </h2>
         <p className="fire-score">🔥 Final Score: {score.correct}/{score.total} 🔥</p>
 
           <button onClick={restartGame} className="nav-button">Try Again?</button>
@@ -82,7 +85,7 @@ const App = () => {
       ) : (
         <>
           <p className="progress-indicator fire-progress">
-            🔥 Card {currentCardIndex + 1} of {flashcardsData.length} 🔥
+          📜 Card {currentCardIndex + 1} of {flashcardsData.length} 📜
           </p>
 
 
