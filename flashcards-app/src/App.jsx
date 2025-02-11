@@ -86,18 +86,18 @@ const App = () => {
 
   return (
     <div className="App">
-      {!gameOver && <h1 className="fire-title">🧙‍♂️ LOTR Trivia Cards 🧙‍♂️</h1>}
+      {!gameOver && <h1 className="fire-title">♦ LOTR Trivia Cards ♦</h1>}
 
       {gameOver ? (
         <div className="game-over">
-          <h2 className="fire-text"> ☠️Game Over!☠️ </h2>
-          <p className="fire-score">🔥 Final Score: {score.correct}/{score.total} 🔥</p>
+          <h2 className="fire-text"> GAME OVER </h2>
+          <p className="fire-score">♦ Final Score: {score.correct}/{score.total} ♦</p>
           <button onClick={restartGame} className="nav-button">Try Again?</button>
         </div>
       ) : (
         <>
           <p className="progress-indicator fire-progress">
-            📜 Card {currentCardIndex + 1} of {shuffledCards.length} 📜
+            ♦ Card {currentCardIndex + 1} of {shuffledCards.length} ♦
           </p>
 
           <div className="flashcard-container">

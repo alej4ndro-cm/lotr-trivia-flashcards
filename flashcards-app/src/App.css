@@ -13,6 +13,7 @@ body {
     background-size: cover;
 }
 
+
 h1 {
     font-size: 4em;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
@@ -193,7 +194,7 @@ p {
 
 .game-over button {
     padding: 10px 25px;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Uncial Antiqua', serif;
     border: 2px solid #8b7355;
     border-radius: 8px;
@@ -203,8 +204,8 @@ p {
     transition: all 0.3s ease-in-out;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     font-weight: bold;
-    width: 250px; /* Match "Show Answer" */
-    height: 60px; /* Same height for consistency */
+    width: 200px; /* Match "Show Answer" */
+    height: 50px; /* Same height for consistency */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -326,6 +327,7 @@ p {
 
 .fire-text, .fire-score {
     font-size: 2.5em;
+    font-family: 'Uncial Antiqua', serif;
     color: white; /* More muted, golden ember color */
     text-shadow: 2px 2px 8px rgba(120, 53, 20, 0.8), 
                  3px 3px 12px rgba(89, 40, 10, 0.6), 
