@@ -82,21 +82,29 @@ p {
 }
 
 .shuffle-button {
-    margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 2em;
     font-weight: bold;
-    border: none;
+    border: 2px solid #8b7355;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #4caf50;
-    color: white;
-    transition: background 0.3s ease-in-out;
+    background: linear-gradient(145deg, #c0a060 0%, #ab8d4d 100%);
+    color: #2c1810;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+    font-family: 'Uncial Antiqua', serif;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shuffle-button:hover {
-    background-color: #45a049;
+    background: linear-gradient(145deg, #d4b574 0%, #c0a060 100%);
+    transform: translateY(-2px);
 }
+
 
 @media screen and (max-width: 768px) {
     h1 {
@@ -208,7 +216,7 @@ p {
     transform: translateY(-2px);
 }
 
-/* ✅ FIX: Hide the title when Game Over is active */
+/*Hide the title when Game Over is active */
 .game-over h1 {
     display: none;
 }
@@ -294,15 +302,12 @@ p {
 }
 
 @keyframes fireGlow {
-    0% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
-    50% { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00; }
-    100% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
-}
-
-@keyframes fireGlow {
-    0% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
-    50% { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00; }
-    100% { text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00; }
+    0% { text-shadow: 2px 2px 8px rgba(120, 53, 20, 0.8), 
+        3px 3px 12px rgba(89, 40, 10, 0.6), 
+        4px 4px 18px rgba(56, 22, 5, 0.4); }
+100% { text-shadow: 3px 3px 10px rgba(150, 73, 30, 1), 
+         4px 4px 14px rgba(120, 53, 20, 0.9), 
+         5px 5px 20px rgba(89, 40, 10, 0.8); }
 }
 
 /* Fire effect for the main title */
@@ -319,17 +324,22 @@ p {
     animation: fireGlow 1.5s infinite alternate;
 }
 
-/* Apply fire effect to Game Over and Score */
-.fire-text {
-    font-size: 3.5em;
-    color: white;
-    animation: fireGlow 1.5s infinite alternate;
+.fire-text, .fire-score {
+    font-size: 2.5em;
+    color: white; /* More muted, golden ember color */
+    text-shadow: 2px 2px 8px rgba(120, 53, 20, 0.8), 
+                 3px 3px 12px rgba(89, 40, 10, 0.6), 
+                 4px 4px 18px rgba(56, 22, 5, 0.4);
+    animation: emberGlow 2s infinite alternate ease-in-out;
 }
 
-/* Fire effect for the score */
-.fire-score {
-    font-size: 2em;
-    color: white;
-    animation: fireGlow 1.5s infinite alternate;
+/* Subtle Ember Glow Effect */
+@keyframes emberGlow {
+    0% { text-shadow: 2px 2px 8px rgba(120, 53, 20, 0.8), 
+                  3px 3px 12px rgba(89, 40, 10, 0.6), 
+                  4px 4px 18px rgba(56, 22, 5, 0.4); }
+    100% { text-shadow: 3px 3px 10px rgba(150, 73, 30, 1), 
+                   4px 4px 14px rgba(120, 53, 20, 0.9), 
+                   5px 5px 20px rgba(89, 40, 10, 0.8); }
 }
 

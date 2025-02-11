@@ -54,18 +54,18 @@ const Flashcard = ({ question, answer, isFlipped, setIsFlipped, onAnswer, isAnsw
   };
 
   const handleGiveUp = () => {
-    if (localAnswered) return; // Prevent multiple clicks
-  
-    setFeedback(false);
+    if (localAnswered) return; // Prevent multiple score updates
+
     setIsFlipped(true);
-  
+
     setTimeout(() => {
       if (!localAnswered) { 
         onAnswer(false);
         setLocalAnswered(true);
       }
     }, 500);
-  };  
+  };
+  
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">

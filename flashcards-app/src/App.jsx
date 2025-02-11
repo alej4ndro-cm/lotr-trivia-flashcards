@@ -17,6 +17,7 @@ const flashcardsData = [
 ];
 
 const App = () => {
+  const [shuffledCards, setShuffledCards] = useState([...flashcardsData]); // Start with default order
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [score, setScore] = useState({ correct: 0, total: 0 });
@@ -35,7 +36,7 @@ const App = () => {
         updatedSet.add(currentCardIndex);
 
         // Stop the game if all cards are answered
-        if (updatedSet.size === flashcardsData.length) {
+        if (updatedSet.size === shuffledCards.length) {
           setGameOver(true);
         }
 
@@ -44,23 +45,36 @@ const App = () => {
     }
   };
 
+  const shuffleCards = () => {
+    const shuffled = [...flashcardsData]; // Copy the original set
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+    }
+
+    setShuffledCards(shuffled); // Set shuffled cards
+    setCurrentCardIndex(0); // Reset to first card
+    setIsFlipped(false); // Ensure card starts on the front
+    setAnsweredCards(new Set()); // Reset answered cards
+    setScore({ correct: 0, total: 0 }); // Reset score
+    setGameOver(false); // Ensure game resets
+  };
+
   const nextCard = () => {
     setIsFlipped(false); // Ensure it flips to front before changing cards
     setTimeout(() => {
-        setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcardsData.length);
+      setCurrentCardIndex((prevIndex) => (prevIndex + 1) % shuffledCards.length);
     }, 200); // Small delay to ensure reset before change
-};
+  };
 
-
-const prevCard = () => {
-  setIsFlipped(false); // Flip to front before changing cards
-  setTimeout(() => {
+  const prevCard = () => {
+    setIsFlipped(false); // Flip to front before changing cards
+    setTimeout(() => {
       setCurrentCardIndex((prevIndex) =>
-          prevIndex === 0 ? flashcardsData.length - 1 : prevIndex - 1
+        prevIndex === 0 ? shuffledCards.length - 1 : prevIndex - 1
       );
-  }, 200);
-};
-
+    }, 200);
+  };
 
   const restartGame = () => {
     setCurrentCardIndex(0);
@@ -74,25 +88,22 @@ const prevCard = () => {
     <div className="App">
       {!gameOver && <h1 className="fire-title">🧙‍♂️ LOTR Trivia Cards 🧙‍♂️</h1>}
 
-
       {gameOver ? (
         <div className="game-over">
-        <h2 className="fire-text"> ☠️Game Over!☠️ </h2>
-        <p className="fire-score">🔥 Final Score: {score.correct}/{score.total} 🔥</p>
-
+          <h2 className="fire-text"> ☠️Game Over!☠️ </h2>
+          <p className="fire-score">🔥 Final Score: {score.correct}/{score.total} 🔥</p>
           <button onClick={restartGame} className="nav-button">Try Again?</button>
         </div>
       ) : (
         <>
           <p className="progress-indicator fire-progress">
-          📜 Card {currentCardIndex + 1} of {flashcardsData.length} 📜
+            📜 Card {currentCardIndex + 1} of {shuffledCards.length} 📜
           </p>
-
 
           <div className="flashcard-container">
             <Flashcard
-              question={flashcardsData[currentCardIndex].question}
-              answer={flashcardsData[currentCardIndex].answer}
+              question={shuffledCards[currentCardIndex].question}
+              answer={shuffledCards[currentCardIndex].answer}
               isFlipped={isFlipped}
               setIsFlipped={setIsFlipped}
               onAnswer={handleAnswer}
@@ -103,6 +114,7 @@ const prevCard = () => {
           <div className="button-container">
             <button onClick={prevCard} className="nav-button">Previous</button>
             <button onClick={nextCard} className="nav-button" disabled={gameOver}>Next</button>
+            <button onClick={shuffleCards} className="shuffle-button">⤨</button> {/* NEW BUTTON */}
           </div>
         </>
       )}
