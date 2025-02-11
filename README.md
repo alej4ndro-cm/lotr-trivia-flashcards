@@ -50,12 +50,13 @@ By the end of this project, I was able to:
 
 ## 🎥 Video Walkthrough  
 
-Here's a walkthrough of implemented features:  
+Here's a walkthrough of implemented required features:
 
-<img src='https://i.imgur.com/j8CkezY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
+<img src='https://i.imgur.com/2UFBHnV.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with the final GIF once recorded -->
-GIF created with [Peek](https://github.com/phw/peek)  
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with [peek](https://github.com/phw/peek) for Linux.
+
 
 ---
 
