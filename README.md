@@ -52,7 +52,7 @@ By the end of this project, I was able to:
 
 Here's a walkthrough of implemented features:  
 
-<img src='https://i.imgur.com/pXvupAn.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
+<img src='https://i.imgur.com/8H5pFI6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
 
 <!-- Replace this with the final GIF once recorded -->
 GIF created with [Peek](https://github.com/phw/peek)  
